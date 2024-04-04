@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 5000
 const connect = require('./db/connect')
-const mongoose = require("mongoose")
+
 
 const authenticationRouter = require("./routes/authenticationRoutes")
 const userRouter = require("./routes/userRoutes")
@@ -24,7 +24,7 @@ cloudinary.config({
 app.use(express.static('public'))
 app.use(express.json())
 app.use(fileupload({useTempFiles : true}))
-mongoose.set('strictQuery', true);
+
 
 app.options("/*", function(req, res, next){
   res.header('Access-Control-Allow-Origin', '*');
